@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
     'title' => 'MySQL Widget',
-    'description' => 'MySQL Widget',
+    'description' => 'Add DashBoard widgets to show MySQL status',
     'category' => 'plugin',
     'author' => 'Stefan Froemken',
     'author_email' => 'froemken@gmail.com',
