@@ -1,11 +1,11 @@
 {
-	"name": "stefanfroemken/mysql-status",
+	"name": "stefanfroemken/mysql-widget",
 	"type": "typo3-cms-extension",
-	"description": "MySQL Status",
+	"description": "Shows MySQL status in widgets of TYPO3s new DashBoard",
 	"license": "GPL-2.0-or-later",
-	"keywords": ["typo3", "TYPO3 CMS", "mysql", "status"],
-	"homepage": "https://jweiland.net",
-	"version": "1.0.0",
+	"keywords": ["typo3", "TYPO3 CMS", "mysql", "status", "widget"],
+	"homepage": "https://www.typo3lexikon.de",
+	"version": "0.1.0",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
