@@ -1,0 +1,38 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  StefanFroemken\MySqlWidget\:
+    resource: '../Classes/*'
+
+  dashboard.widget.innodb.bufferpool:
+    class: 'StefanFroemken\MySqlWidget\Widgets\InnoDbBufferPool'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $dataProvider: '@StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider'
+    tags:
+      - name: dashboard.widget
+        identifier: 'mysql.innodb.bufferpool'
+        groupNames: 'systemInfo'
+        title: 'MySQL InnoDB Buffer Pool'
+        description: 'Show used and free data of MySQL InnoDB'
+        iconIdentifier: 'content-widget-rss'
+        height: 'medium'
+        width: 'small'
+
+  dashboard.widget.innodb.status:
+    class: 'StefanFroemken\MySqlWidget\Widgets\InnoDbStatus'
+    arguments:
+      $view: '@dashboard.views.widget'
+      $dataProvider: '@StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider'
+    tags:
+      - name: dashboard.widget
+        identifier: 'mysql.innodb.status'
+        groupNames: 'systemInfo'
+        title: 'MySQL InnoDB Status'
+        description: 'Show Status of InnoDb'
+        iconIdentifier: 'content-widget-rss'
+        height: 'medium'
+        width: 'small'
