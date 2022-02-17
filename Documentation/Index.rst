@@ -28,7 +28,7 @@ MySQL Widget
       mysql, status, innodb
 
    :Copyright:
-      2013-2021
+      2013-2022
 
    :Author:
       Stefan Froemken
@@ -54,8 +54,6 @@ MySQL Widget
 
 
    Introduction/Index
-   User/Index
    Installation/Index
    KnownProblems/Index
    ChangeLog/Index
-   Links
