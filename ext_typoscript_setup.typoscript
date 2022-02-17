@@ -1,7 +1,7 @@
 module.tx_dashboard {
-    view {
-        templateRootPaths {
-            1610478979 = EXT:mysql_widget/Resources/Private/Templates/Dashboard/
-        }
+  view {
+    templateRootPaths {
+      1610478979 = EXT:mysql_widget/Resources/Private/Templates/Dashboard/
     }
+  }
 }

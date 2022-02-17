@@ -1,4 +1,5 @@
 <?php
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'MySQL Widget',
     'description' => 'Add DashBoard widgets to show MySQL status',
@@ -8,10 +9,11 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => '',
     'state' => 'stable',
     'clearCacheOnLoad' => 0,
-    'version' => '0.1.0',
+    'version' => '0.2.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.0-10.4.99',
+            'php' => '7.4.0-8.1.99',
+            'typo3' => '10.4.19-11.5.99',
         ],
         'conflicts' => [
         ],
