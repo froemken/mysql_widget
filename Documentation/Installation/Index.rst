@@ -7,9 +7,25 @@
 Installation
 ============
 
-Target group: **Administrators**
 
-The extension needs to be installed like any other extension of TYPO3 CMS:
+Installation Type
+=================
+
+
+Composer
+--------
+
+You can install `mysql_widget` with following shell command:
+
+.. code-block:: bash
+
+   composer req stefanfroemken/mysql-widget
+
+
+Extensionmanager
+----------------
+
+If you want to install `mysql_widget` traditionally with Extensionmanager, follow these steps:
 
 #. Visit ExtensionManager
 

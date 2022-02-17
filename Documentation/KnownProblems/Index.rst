@@ -7,8 +7,8 @@
 Known Problems
 ==============
 
-Just an idea
-============
 
-Currently mysql_widget is only a first idea. It is not finished and the code structure may
-change in next releases.
+Support servers other than MySQL
+================================
+
+Currently mysql_widget will only support MySQL und MariaDB servers.
