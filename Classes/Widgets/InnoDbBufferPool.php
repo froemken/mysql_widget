@@ -21,20 +21,11 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class InnoDbBufferPool implements WidgetInterface, EventDataInterface, AdditionalCssInterface, RequireJsModuleInterface
 {
-    /**
-     * @var WidgetConfigurationInterface
-     */
-    private $configuration;
+    private WidgetConfigurationInterface $configuration;
 
-    /**
-     * @var StandaloneView
-     */
-    private $view;
+    private StandaloneView $view;
 
-    /**
-     * @var InnoDbDataProvider
-     */
-    private $dataProvider;
+    private InnoDbDataProvider $dataProvider;
 
     public function __construct(
         WidgetConfigurationInterface $configuration,

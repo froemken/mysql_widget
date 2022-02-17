@@ -21,12 +21,12 @@ class InnoDbDataProvider implements ChartDataProviderInterface
     /**
      * @var array
      */
-    protected $innoDbStatus = [];
+    protected array $innoDbStatus = [];
 
     /**
      * @var array
      */
-    protected $handlerStatus = [];
+    protected array $handlerStatus = [];
 
     public function getChartData(): array
     {
