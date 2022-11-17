@@ -1,59 +1,52 @@
-.. include:: Includes.txt
+.. include:: /Includes.rst.txt
 
 
-.. Every manual should have a start label for cross-referencing to
-.. start page. Do not remove this!
+:Extension key:
+   mysql_widget
 
-.. _start:
+:Package name:
+   MySQL Widget
 
-=============================================================
-MySQL Widget
-=============================================================
+:Version:
+   |release|
 
-.. only:: html
+:Language:
+   en
 
-   :Classification:
-      mysql_widget
+:Author:
+   Stefan Froemken
 
-   :Version:
-      |release|
+:License:
+   This document is published under the
+   `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+   license.
 
-   :Language:
-      en
+:Rendered:
+   |today|
 
-   :Description:
-      Manual covering TYPO3 extension mysql_widget
+----
 
-   :Keywords:
-      mysql, status, innodb
+`mysqlreport` delivers two widgets for EXT:dashboard which is available since TYPO3 10.
+Currently it supports a pie graph for InnoDB usage and another widget to show some
+InnoDB status analysis.
 
-   :Copyright:
-      2013-2022
+----
 
-   :Author:
-      Stefan Froemken
-
-   :Email:
-      froemken@gmail.com
-
-   :License:
-      This document is published under the Open Publication License
-      available from http://www.opencontent.org/openpub/
-
-   :Rendered:
-      |today|
-
-   The content of this document is related to TYPO3,
-   a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
-
-
-   **Table of Contents**
+**Table of Contents:**
 
 .. toctree::
-   :maxdepth: 3
-
+   :maxdepth: 2
+   :titlesonly:
 
    Introduction/Index
    Installation/Index
    KnownProblems/Index
    ChangeLog/Index
+
+.. Meta Menu
+
+.. toctree::
+   :hidden:
+
+   Sitemap
+   genindex
