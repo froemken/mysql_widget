@@ -3,9 +3,14 @@
 	"type": "typo3-cms-extension",
 	"description": "Shows MySQL status in widgets of TYPO3s new DashBoard",
 	"license": "GPL-2.0-or-later",
-	"keywords": ["typo3", "TYPO3 CMS", "mysql", "status", "widget"],
+	"keywords": [
+		"typo3",
+		"TYPO3 CMS",
+		"mysql",
+		"status",
+		"widget"
+	],
 	"homepage": "https://www.typo3lexikon.de",
-	"version": "0.1.0",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
@@ -20,9 +25,10 @@
 	},
 	"require": {
 		"php": "^7.4 || ^8.0",
-		"typo3/cms-core": "^10.4.19 || ^11.5.0"
+		"typo3/cms-core": "^10.4.32 || ^11.5.16"
 	},
 	"require-dev": {
+		"roave/security-advisories": "dev-latest",
 		"friendsofphp/php-cs-fixer": "^3.4"
 	},
 	"autoload": {
