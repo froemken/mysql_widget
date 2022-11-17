@@ -5,7 +5,6 @@
 	"license": "GPL-2.0-or-later",
 	"keywords": ["typo3", "TYPO3 CMS", "mysql", "status", "widget"],
 	"homepage": "https://www.typo3lexikon.de",
-	"version": "0.1.0",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
