@@ -1,4 +1,4 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
 
 
 .. _changelog:
@@ -6,6 +6,12 @@
 =========
 ChangeLog
 =========
+
+**Version 0.2.1**
+
+- Add .github directory to .gitattributes
+- Remove version from composer.json
+- Update TYPO3 dependencies
 
 **Version 0.2.0**
 
