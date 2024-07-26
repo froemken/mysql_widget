@@ -33,8 +33,8 @@ MySQL Widget
 ----
 
 `mysql_widget` delivers two widgets for EXT:dashboard which is available since
- TYPO3 10. Currently it supports a pie graph for InnoDB usage and another
- widget to show some InnoDB status analysis.
+TYPO3 10. Currently it supports a pie graph for InnoDB usage and another
+widget to show some InnoDB status analysis.
 
 ----
 
