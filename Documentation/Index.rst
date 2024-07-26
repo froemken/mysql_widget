@@ -1,52 +1,57 @@
-.. include:: /Includes.rst.txt
 
+..  include:: /Includes.rst.txt
+
+..  _start:
+
+============
+MySQL Widget
+============
 
 :Extension key:
-   mysql_widget
+    mysql_widget
 
 :Package name:
-   MySQL Widget
+    stefanfroemken/mysql-widget
 
 :Version:
-   |release|
+    |release|
 
 :Language:
-   en
+    en
 
 :Author:
-   Stefan Froemken
+    Stefan Froemken
 
 :License:
-   This document is published under the
-   `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
-   license.
+    This document is published under the
+    `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+    license.
 
 :Rendered:
-   |today|
+    |today|
 
 ----
 
-`mysqlreport` delivers two widgets for EXT:dashboard which is available since TYPO3 10.
-Currently it supports a pie graph for InnoDB usage and another widget to show some
-InnoDB status analysis.
+`mysql_widget` delivers two widgets for EXT:dashboard which is available since
+ TYPO3 10. Currently it supports a pie graph for InnoDB usage and another
+ widget to show some InnoDB status analysis.
 
 ----
 
 **Table of Contents:**
 
-.. toctree::
-   :maxdepth: 2
-   :titlesonly:
+..  toctree::
+    :maxdepth: 2
+    :titlesonly:
 
-   Introduction/Index
-   Installation/Index
-   KnownProblems/Index
-   ChangeLog/Index
+    Introduction/Index
+    Installation/Index
+    KnownProblems/Index
+    ChangeLog/Index
 
-.. Meta Menu
+..  Meta Menu
 
-.. toctree::
-   :hidden:
+..  toctree::
+    :hidden:
 
-   Sitemap
-   genindex
+    Sitemap

@@ -1,14 +1,13 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _known-problems:
+..  _known-problems:
 
 ==============
 Known Problems
 ==============
 
-
 Support servers other than MySQL
 ================================
 
-Currently mysql_widget will only support MySQL und MariaDB servers.
+Currently `mysql_widget` will only support MySQL und MariaDB servers.
