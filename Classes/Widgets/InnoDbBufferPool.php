@@ -11,42 +11,43 @@ declare(strict_types=1);
 
 namespace StefanFroemken\MySqlWidget\Widgets;
 
+use Psr\Http\Message\ServerRequestInterface;
 use StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider;
-use TYPO3\CMS\Dashboard\Widgets\AdditionalCssInterface;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
+use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Dashboard\Widgets\EventDataInterface;
-use TYPO3\CMS\Dashboard\Widgets\RequireJsModuleInterface;
+use TYPO3\CMS\Dashboard\Widgets\JavaScriptInterface;
+use TYPO3\CMS\Dashboard\Widgets\RequestAwareWidgetInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class InnoDbBufferPool implements WidgetInterface, EventDataInterface, AdditionalCssInterface, RequireJsModuleInterface
+class InnoDbBufferPool implements WidgetInterface, EventDataInterface, JavaScriptInterface, RequestAwareWidgetInterface
 {
-    private WidgetConfigurationInterface $configuration;
-
-    private StandaloneView $view;
-
-    private InnoDbDataProvider $dataProvider;
+    private ServerRequestInterface $request;
 
     public function __construct(
-        WidgetConfigurationInterface $configuration,
-        StandaloneView $view,
-        InnoDbDataProvider $dataProvider
+        private readonly WidgetConfigurationInterface $configuration,
+        private readonly BackendViewFactory $backendViewFactory,
+        private readonly InnoDbDataProvider $dataProvider,
+        private readonly array $options = []
     ) {
-        $this->configuration = $configuration;
-        $this->view = $view;
-        $this->dataProvider = $dataProvider;
+    }
+
+    public function setRequest(ServerRequestInterface $request): void
+    {
+        $this->request = $request;
     }
 
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/InnoDbBufferPool');
-        $this->view->assignMultiple([
+        $view = $this->backendViewFactory->create($this->request);
+        $view->assignMultiple([
             'configuration' => $this->configuration,
             'usedData' => $this->dataProvider->getInnoDbPoolDataUsed(),
             'totalData' => $this->dataProvider->getInnoDbPoolDataTotal()
         ]);
 
-        return $this->view->render();
+        return $view->render('Widget/InnoDbBufferPool');
     }
 
     public function getEventData(): array
@@ -73,18 +74,16 @@ class InnoDbBufferPool implements WidgetInterface, EventDataInterface, Additiona
         ];
     }
 
-    public function getCssFiles(): array
+    public function getJavaScriptModuleInstructions(): array
     {
         return [
-            'EXT:dashboard/Resources/Public/Css/Contrib/chart.css'
+            JavaScriptModuleInstruction::create('@typo3/dashboard/contrib/chartjs.js'),
+            JavaScriptModuleInstruction::create('@typo3/dashboard/chart-initializer.js'),
         ];
     }
 
-    public function getRequireJsModules(): array
+    public function getOptions(): array
     {
-        return [
-            'TYPO3/CMS/Dashboard/Contrib/chartjs',
-            'TYPO3/CMS/Dashboard/ChartInitializer',
-        ];
+        return $this->options;
     }
 }

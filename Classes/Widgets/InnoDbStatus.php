@@ -11,39 +11,45 @@ declare(strict_types=1);
 
 namespace StefanFroemken\MySqlWidget\Widgets;
 
+use Psr\Http\Message\ServerRequestInterface;
 use StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider;
+use TYPO3\CMS\Backend\View\BackendViewFactory;
+use TYPO3\CMS\Dashboard\Widgets\RequestAwareWidgetInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
 use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class InnoDbStatus implements WidgetInterface
+class InnoDbStatus implements WidgetInterface, RequestAwareWidgetInterface
 {
-    private WidgetConfigurationInterface $configuration;
-
-    private StandaloneView $view;
-
-    private InnoDbDataProvider $dataProvider;
+    private ServerRequestInterface $request;
 
     public function __construct(
-        WidgetConfigurationInterface $configuration,
-        StandaloneView $view,
-        InnoDbDataProvider $dataProvider
+        private readonly WidgetConfigurationInterface $configuration,
+        private readonly BackendViewFactory $backendViewFactory,
+        private readonly InnoDbDataProvider $dataProvider,
+        private readonly array $options = []
     ) {
-        $this->configuration = $configuration;
-        $this->view = $view;
-        $this->dataProvider = $dataProvider;
+    }
+
+    public function setRequest(ServerRequestInterface $request): void
+    {
+        $this->request = $request;
     }
 
     public function renderWidgetContent(): string
     {
-        $this->view->setTemplate('Widget/InnoDbStatus');
-        $this->view->assignMultiple([
+        $view = $this->backendViewFactory->create($this->request);
+        $view->assignMultiple([
             'configuration' => $this->configuration,
             'bufferPoolTooSmall' => $this->dataProvider->getInnoDbBufferPoolWaitFree() > 0,
             'readHitRatio' => $this->dataProvider->getInnoDbHitRatio(),
             'handlerReadRatio' => $this->dataProvider->getHandlerReadRatio()
         ]);
 
-        return $this->view->render();
+        return $view->render('Widget/InnoDbStatus');
+    }
+
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }

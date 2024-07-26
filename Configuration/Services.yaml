@@ -10,7 +10,6 @@ services:
   dashboard.widget.innodb.bufferpool:
     class: 'StefanFroemken\MySqlWidget\Widgets\InnoDbBufferPool'
     arguments:
-      $view: '@dashboard.views.widget'
       $dataProvider: '@StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider'
     tags:
       - name: dashboard.widget
@@ -25,7 +24,6 @@ services:
   dashboard.widget.innodb.status:
     class: 'StefanFroemken\MySqlWidget\Widgets\InnoDbStatus'
     arguments:
-      $view: '@dashboard.views.widget'
       $dataProvider: '@StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider'
     tags:
       - name: dashboard.widget
