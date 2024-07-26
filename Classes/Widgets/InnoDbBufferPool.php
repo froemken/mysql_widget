@@ -29,9 +29,7 @@ class InnoDbBufferPool implements WidgetInterface, EventDataInterface, JavaScrip
         private readonly WidgetConfigurationInterface $configuration,
         private readonly BackendViewFactory $backendViewFactory,
         private readonly InnoDbDataProvider $dataProvider,
-        private readonly array $options = []
-    ) {
-    }
+    ) {}
 
     public function setRequest(ServerRequestInterface $request): void
     {
@@ -44,12 +42,15 @@ class InnoDbBufferPool implements WidgetInterface, EventDataInterface, JavaScrip
         $view->assignMultiple([
             'configuration' => $this->configuration,
             'usedData' => $this->dataProvider->getInnoDbPoolDataUsed(),
-            'totalData' => $this->dataProvider->getInnoDbPoolDataTotal()
+            'totalData' => $this->dataProvider->getInnoDbPoolDataTotal(),
         ]);
 
         return $view->render('Widget/InnoDbBufferPool');
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function getEventData(): array
     {
         return [
@@ -59,15 +60,15 @@ class InnoDbBufferPool implements WidgetInterface, EventDataInterface, JavaScrip
                     'maintainAspectRatio' => false,
                     'legend' => [
                         'display' => true,
-                        'position' => 'bottom'
+                        'position' => 'bottom',
                     ],
                     'tooltips' => [
-                        'enabled' => true
+                        'enabled' => true,
                     ],
                     'title' => [
                         'display' => true,
-                        'text' => 'Usage in %'
-                    ]
+                        'text' => 'Usage in %',
+                    ],
                 ],
                 'data' => $this->dataProvider->getChartData(),
             ],
@@ -82,8 +83,11 @@ class InnoDbBufferPool implements WidgetInterface, EventDataInterface, JavaScrip
         ];
     }
 
+    /**
+     * @phpstan-return array<mixed>
+     */
     public function getOptions(): array
     {
-        return $this->options;
+        return [];
     }
 }

@@ -26,9 +26,7 @@ class InnoDbStatus implements WidgetInterface, RequestAwareWidgetInterface
         private readonly WidgetConfigurationInterface $configuration,
         private readonly BackendViewFactory $backendViewFactory,
         private readonly InnoDbDataProvider $dataProvider,
-        private readonly array $options = []
-    ) {
-    }
+    ) {}
 
     public function setRequest(ServerRequestInterface $request): void
     {
@@ -42,14 +40,17 @@ class InnoDbStatus implements WidgetInterface, RequestAwareWidgetInterface
             'configuration' => $this->configuration,
             'bufferPoolTooSmall' => $this->dataProvider->getInnoDbBufferPoolWaitFree() > 0,
             'readHitRatio' => $this->dataProvider->getInnoDbHitRatio(),
-            'handlerReadRatio' => $this->dataProvider->getHandlerReadRatio()
+            'handlerReadRatio' => $this->dataProvider->getHandlerReadRatio(),
         ]);
 
         return $view->render('Widget/InnoDbStatus');
     }
 
+    /**
+     * @phpstan-return array<mixed>
+     */
     public function getOptions(): array
     {
-        return $this->options;
+        return [];
     }
 }

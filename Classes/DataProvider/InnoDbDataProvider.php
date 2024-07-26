@@ -19,33 +19,39 @@ use TYPO3\CMS\Dashboard\Widgets\ChartDataProviderInterface;
 class InnoDbDataProvider implements ChartDataProviderInterface
 {
     /**
-     * @var array
+     * @var array<string, array<string, int>>
      */
     protected array $innoDbStatus = [];
 
     /**
-     * @var array
+     * @var array<string, int>
      */
     protected array $handlerStatus = [];
 
+    /**
+     * @return array{labels: array<int, string>, datasets: array<mixed>}
+     */
     public function getChartData(): array
     {
         return [
             'labels' => [
                 0 => 'Used',
                 1 => 'Misc',
-                2 => 'Free'
+                2 => 'Free',
             ],
             'datasets' => [
                 [
                     'backgroundColor' => WidgetApi::getDefaultChartColors(),
                     'border' => 0,
-                    'data' => $this->getInnoDbChartData()
-                ]
-            ]
+                    'data' => $this->getInnoDbChartData(),
+                ],
+            ],
         ];
     }
 
+    /**
+     * @return array<int, mixed> An array of innodb buffer pool pages with keys 0 for 'data', 1 for 'misc', and 2 for 'free'
+     */
     protected function getInnoDbChartData(): array
     {
         $innoDbStatus = $this->getInnoDbStatus();
@@ -53,20 +59,23 @@ class InnoDbDataProvider implements ChartDataProviderInterface
         return [
             0 => $innoDbStatus['Innodb_buffer_pool_pages_data'],
             1 => $innoDbStatus['Innodb_buffer_pool_pages_misc'],
-            2 => $innoDbStatus['Innodb_buffer_pool_pages_free']
+            2 => $innoDbStatus['Innodb_buffer_pool_pages_free'],
         ];
     }
 
+    /**
+     * @return array|int[][]
+     */
     protected function getInnoDbStatus(): array
     {
-        if (empty($this->innoDbStatus)) {
+        if ($this->innoDbStatus === []) {
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionByName(
-                ConnectionPool::DEFAULT_CONNECTION_NAME
+                ConnectionPool::DEFAULT_CONNECTION_NAME,
             );
-            $statement = $connection->executeQuery('SHOW GLOBAL STATUS LIKE \'Innodb_%\'');
+            $queryResult = $connection->executeQuery('SHOW GLOBAL STATUS LIKE \'Innodb_%\'');
 
             $innoDbStatus = [];
-            while ($row = $statement->fetch()) {
+            while ($row = $queryResult->fetchAssociative()) {
                 $innoDbStatus[$row['Variable_name']] = $row['Value'];
             }
 
@@ -76,16 +85,19 @@ class InnoDbDataProvider implements ChartDataProviderInterface
         return $this->innoDbStatus;
     }
 
+    /**
+     * @return array|int[]
+     */
     protected function getHandlerStatus(): array
     {
         if (empty($this->handlerStatus)) {
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionByName(
-                ConnectionPool::DEFAULT_CONNECTION_NAME
+                ConnectionPool::DEFAULT_CONNECTION_NAME,
             );
-            $statement = $connection->executeQuery('SHOW GLOBAL STATUS LIKE \'Handler_%\'');
+            $queryResult = $connection->executeQuery('SHOW GLOBAL STATUS LIKE \'Handler_%\'');
 
             $handlerStatus = [];
-            while ($row = $statement->fetch()) {
+            while ($row = $queryResult->fetchAssociative()) {
                 $handlerStatus[$row['Variable_name']] = $row['Value'];
             }
 
@@ -123,6 +135,10 @@ class InnoDbDataProvider implements ChartDataProviderInterface
         $readRequests = (int)$this->getInnoDbStatus()['Innodb_buffer_pool_read_requests'];
         $reads = (int)$this->getInnoDbStatus()['Innodb_buffer_pool_reads'];
 
+        if ($readRequests === 0) {
+            return 0.0;
+        }
+
         return round($readRequests / ($readRequests + $reads) * 100, 2);
     }
 
@@ -137,7 +153,7 @@ class InnoDbDataProvider implements ChartDataProviderInterface
 
         return round(
             ($handlerReadRndNext + $handlerReadRnd) / ($handlerReadRndNext + $handlerReadRnd + $handlerReadFirst + $handlerReadNext + $handlerReadKey + $handlerReadPrev),
-            2
+            2,
         );
     }
 }
