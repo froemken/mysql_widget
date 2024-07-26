@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+**Version 1.0.1**
+
+*   Add new extension icon
+*   Add badges to README.md
+
 **Version 1.0.0**
 
 *   Add TYPO3 13 compatibility
