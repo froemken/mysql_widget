@@ -12,7 +12,7 @@ Introduction
 What does it do?
 ================
 
-This extension adds two new widgets for TYPO3 >= 10 to display data about
+This extension adds two widgets for TYPO3 dashboard to display data about
 used MySQL InnoDB data.
 
 Screenshots
