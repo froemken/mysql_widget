@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+**Version 2.0.0**
+
+*   Add TYPO3 14 compatibility
+*   Remove TYPO3 12 and 13 compatibility
+
 **Version 1.0.1**
 
 *   Add new extension icon

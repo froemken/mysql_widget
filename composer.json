@@ -25,24 +25,19 @@
 		"source": "https://github.com/froemken/mysql_widget"
 	},
 	"require": {
-		"php": "^8.1",
-		"typo3/cms-core": "^12.4.17 || ^13.1.1",
-		"typo3/cms-dashboard": "^12.4.17 || ^13.1.1"
+		"typo3/cms-core": "^14.0",
+		"typo3/cms-dashboard": "^14.0"
 	},
 	"require-dev": {
-		"friendsofphp/php-cs-fixer": "^3.52",
-		"phpstan/phpstan": "^1.10",
-		"phpunit/phpunit": "^11.0.3",
+		"ergebnis/composer-normalize": "~2.48.0",
+		"friendsofphp/php-cs-fixer": "^3.88",
+		"phpstan/phpstan": "^2.1",
+		"phpunit/phpunit": "^11.5",
 		"typo3/testing-framework": "dev-main"
 	},
 	"autoload": {
 		"psr-4": {
 			"StefanFroemken\\MySqlWidget\\": "Classes"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"StefanFroemken\\MySqlWidget\\Tests\\": "Tests"
 		}
 	},
 	"replace": {
