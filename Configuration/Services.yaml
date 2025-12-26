@@ -8,9 +8,7 @@ services:
     resource: '../Classes/*'
 
   dashboard.widget.innodb.bufferpool:
-    class: 'StefanFroemken\MySqlWidget\Widgets\InnoDbBufferPool'
-    arguments:
-      $dataProvider: '@StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider'
+    class: 'StefanFroemken\MySqlWidget\Widget\InnoDbBufferPoolWidget'
     tags:
       - name: dashboard.widget
         identifier: 'mysql.innodb.bufferpool'
@@ -22,9 +20,7 @@ services:
         width: 'small'
 
   dashboard.widget.innodb.status:
-    class: 'StefanFroemken\MySqlWidget\Widgets\InnoDbStatus'
-    arguments:
-      $dataProvider: '@StefanFroemken\MySqlWidget\DataProvider\InnoDbDataProvider'
+    class: 'StefanFroemken\MySqlWidget\Widget\InnoDbStatusWidget'
     tags:
       - name: dashboard.widget
         identifier: 'mysql.innodb.status'
