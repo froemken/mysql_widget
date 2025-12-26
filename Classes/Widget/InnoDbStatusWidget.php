@@ -42,7 +42,7 @@ readonly class InnoDbStatusWidget implements WidgetRendererInterface
 
         $view = $this->backendViewFactory->create($context->request);
         $view->assignMultiple([
-            'configuration' => $context->configuration,
+            'configuration' => $this->configuration,
             'bufferPoolTooSmall' => $innoDbStatus->getInnodbBufferPoolWaitFree() > 0,
             'readHitRatio' => $this->getInnoDbHitRatio($innoDbStatus),
             'handlerReadRatio' => $this->getHandlerReadRatio($handler),

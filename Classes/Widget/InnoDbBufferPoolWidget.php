@@ -64,7 +64,7 @@ class InnoDbBufferPoolWidget implements WidgetRendererInterface, EventDataInterf
 
         $view = $this->backendViewFactory->create($context->request);
         $view->assignMultiple([
-            'configuration' => $context->configuration,
+            'configuration' => $this->configuration,
             'usedData' => $this->formatBytes(
                 $innoDbStatus->getInnoDbPoolDataUsedBytes(),
                 $innoDbStatus->getInnoDbPoolDataTotalBytes(),
