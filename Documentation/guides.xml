@@ -15,7 +15,7 @@
     />
     <project title="MySQL Widget"
              release="2.0"
-             version="2.0.0"
+             version="2.0.1"
              copyright="since 2024 by Stefan Froemken &amp; contributors"
     />
     <inventory id="t3coreapi"

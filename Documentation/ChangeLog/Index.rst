@@ -7,6 +7,10 @@
 ChangeLog
 =========
 
+**Version 2.0.1**
+
+*   Remove trgLng from en only translation file
+
 **Version 2.0.0**
 
 *   Add TYPO3 14 compatibility
