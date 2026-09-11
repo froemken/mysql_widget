@@ -27,15 +27,13 @@ class InnoDbBufferPoolWidget implements WidgetRendererInterface, EventDataInterf
 {
     /**
      * Stateless is not possible here, as we need this widget context in getEventData later
-     *
-     * @var WidgetContext|null
      */
     private ?WidgetContext $widgetContext = null;
 
     public function __construct(
-        private WidgetConfigurationInterface $configuration,
-        private InnoDbStatusFactory $innoDbStatusFactory,
-        private BackendViewFactory $backendViewFactory,
+        private readonly WidgetConfigurationInterface $configuration,
+        private readonly InnoDbStatusFactory $innoDbStatusFactory,
+        private readonly BackendViewFactory $backendViewFactory,
     ) {}
 
     public function getSettingsDefinitions(): array

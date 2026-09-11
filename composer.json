@@ -1,62 +1,66 @@
 {
-	"name": "stefanfroemken/mysql-widget",
-	"type": "typo3-cms-extension",
-	"description": "Show MySQL status in widgets of TYPO3 DashBoard",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"typo3",
-		"TYPO3 CMS",
-		"mysql",
-		"status",
-		"dashboard",
-		"widget"
-	],
-	"homepage": "https://www.typo3lexikon.de",
-	"authors": [
-		{
-			"name": "Stefan Froemken",
-			"email": "froemken@gmail.com",
-			"role": "Developer"
-		}
-	],
-	"support": {
-		"email": "froemken@gmail.com",
-		"issues": "https://github.com/froemken/mysql_widget/issues",
-		"source": "https://github.com/froemken/mysql_widget"
-	},
-	"require": {
-		"typo3/cms-core": "^14.0",
-		"typo3/cms-dashboard": "^14.0"
-	},
-	"require-dev": {
-		"ergebnis/composer-normalize": "~2.48.0",
-		"friendsofphp/php-cs-fixer": "^3.88",
-		"phpstan/phpstan": "^2.1",
-		"phpunit/phpunit": "^11.5",
-		"typo3/testing-framework": "dev-main"
-	},
-	"autoload": {
-		"psr-4": {
-			"StefanFroemken\\MySqlWidget\\": "Classes"
-		}
-	},
-	"replace": {
-		"typo3-ter/mysql_widget": "self.version",
-		"typo3-ter/mysql-widget": "self.version"
-	},
-	"config": {
-		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin",
-		"allow-plugins": {
-			"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": true,
-			"typo3/class-alias-loader": true,
-			"typo3/cms-composer-installers": true
-		}
-	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "mysql_widget",
-			"web-dir": ".Build/public"
-		}
-	}
+    "name": "stefanfroemken/mysql-widget",
+    "description": "Show MySQL status in widgets of TYPO3 DashBoard",
+    "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
+    "keywords": [
+        "typo3",
+        "TYPO3 CMS",
+        "mysql",
+        "status",
+        "dashboard",
+        "widget"
+    ],
+    "authors": [
+        {
+            "name": "Stefan Froemken",
+            "email": "froemken@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://www.typo3lexikon.de",
+    "support": {
+        "email": "froemken@gmail.com",
+        "issues": "https://github.com/froemken/mysql_widget/issues",
+        "source": "https://github.com/froemken/mysql_widget"
+    },
+    "require": {
+        "typo3/cms-core": "^14.0",
+        "typo3/cms-dashboard": "^14.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "~2.48.0",
+        "ssch/typo3-rector": "^3.16",
+        "typo3/coding-standards": "^0.9",
+        "typo3/testing-framework": "dev-main"
+    },
+    "replace": {
+        "typo3-ter/mysql-widget": "self.version",
+        "typo3-ter/mysql_widget": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "StefanFroemken\\MySqlWidget\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "StefanFroemken\\MySqlWidget\\Tests\\": "Tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "bin-dir": ".Build/bin",
+        "vendor-dir": ".Build/vendor"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "mysql_widget",
+            "web-dir": ".Build/public"
+        }
+    }
 }
