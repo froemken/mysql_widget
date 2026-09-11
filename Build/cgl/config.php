@@ -123,6 +123,11 @@ $individualRules = [
         'control_structures_opening_brace' => 'same_line',
         'functions_opening_brace' => 'next_line_unless_newline_at_signature_end',
     ],
+    'class_attributes_separation' => [
+        'elements' => [
+            'method' => 'one',
+        ],
+    ],
     'control_structure_braces' => true,
     'control_structure_continuation_position' => [
         'position' => 'same_line',

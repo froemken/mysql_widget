@@ -31,7 +31,7 @@ readonly class InnoDbStatusFactory
             while ($row = $queryResult->fetchAssociative()) {
                 $innoDbStatus[$row['Variable_name']] = $row['Value'];
             }
-        } catch (Exception $e) {
+        } catch (Exception) {
             return null;
         }
 
