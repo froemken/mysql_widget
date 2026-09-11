@@ -1,23 +1,20 @@
-
 includes:
 	- phpstan-baseline.neon
 
 parameters:
-  level: 6
+	level: 6
 
-  inferPrivatePropertyTypeFromConstructor: true
+	inferPrivatePropertyTypeFromConstructor: true
+	treatPhpDocTypesAsCertain: false
 
-  treatPhpDocTypesAsCertain: false
+	bootstrapFiles:
+		- phpstan-typo3-constants.php
 
-  bootstrapFiles:
-    - phpstan-typo3-constants.php
+	paths:
+		- ../../Classes/
+		- ../../Configuration/
 
-  paths:
-    - ../../Classes/
-    - ../../Configuration/
+	tmpDir: ../../.Build/.cache/phpstan/
 
-  tmpDir: ../../.Build/.cache/phpstan/
-
-  excludePaths:
-    - '*/Build/node_modules'
-    - '../../ext_emconf.php'
+	excludePaths:
+		- '../../ext_emconf.php'
