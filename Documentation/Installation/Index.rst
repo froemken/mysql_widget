@@ -1,54 +1,56 @@
 ..  include:: /Includes.rst.txt
 
-
 ..  _installation:
 
 ============
 Installation
 ============
 
-Composer
-========
+Install :t3ext:`mysql_widget` using Composer. For legacy environments, use the
+Extension Manager.
 
-If your TYPO3 installation works in composer mode, please execute following
-command:
+..  _installation-composer:
+
+Installation with Composer
+==========================
+
+In Composer-based TYPO3 installations, install the extension by requiring the
+package:
 
 ..  code-block:: bash
 
     composer req stefanfroemken/mysql-widget
-    vendor/bin/typo3 extension:setup --extension=mysql_widget
 
-If you work with DDEV please execute this command:
+If you work with DDEV, run:
 
 ..  code-block:: bash
 
     ddev composer req stefanfroemken/mysql-widget
-    ddev exec vendor/bin/typo3 extension:setup --extension=mysql_widget
 
-ExtensionManager
-================
+..  _installation-extension-manager:
 
-On non composer based TYPO3 installations you can install `mysql_widget` still
-over the ExtensionManager:
+Installation in legacy environments
+===================================
+
+Composer is the recommended way to manage extensions. In legacy non-Composer
+installations, install the extension using the Extension Manager:
 
 ..  rst-class:: bignums
 
-1.  Login
+1.  Log in
 
-    Login to backend of your TYPO3 installation as an administrator or system
-    maintainer.
+    Log in to the TYPO3 backend as an administrator.
 
-2.  Open ExtensionManager
+2.  Open the Extension Manager
 
-    Click on `Extensions` from the left menu to open the ExtensionManager.
+    Navigate to :guilabel:`Admin Tools > Extensions`.
 
-3.  Update Extensions
+3.  Update the extension list
 
-    Choose `Get Extensions` from the upper selectbox and click on
-    the `Update now` button at the upper right.
+    Select :guilabel:`Get Extensions` from the top dropdown menu. Click
+    :guilabel:`Update now`.
 
-4.  Install `mysql_widget`
+4.  Install the extension
 
-    Use the search field to find `mysql_widget`. Choose the `mysql_widget`
-    line from the search result and click on the cloud icon to
-    install `mysql_widget`.
+    Search for :t3ext:`mysql_widget`. Click the cloud icon to download and
+    activate the extension.

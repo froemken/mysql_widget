@@ -1,4 +1,3 @@
-
 ..  include:: /Includes.rst.txt
 
 ..  _start:
@@ -32,13 +31,11 @@ MySQL Widget
 
 ----
 
-`mysql_widget` delivers two widgets for EXT:dashboard which is available since
-TYPO3 10. Currently it supports a pie graph for InnoDB usage and another
-widget to show some InnoDB status analysis.
+The extension :t3ext:`mysql_widget` delivers monitoring widgets for the TYPO3 backend
+:t3ext:`dashboard`. It visualizes InnoDB buffer pool memory allocation and provides
+vital database metrics for MySQL and MariaDB servers.
 
 ----
-
-**Table of Contents:**
 
 ..  toctree::
     :maxdepth: 2
